@@ -1,0 +1,18 @@
+{
+  "name": "dominique/fl.a.p.i",
+  "authors": [
+    {
+      "name": "Dominique Vilain",
+      "email": "domi@domy.be"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Controllers\\": "controllers/",
+      "Models\\": "models/"
+    }
+  },
+  "require": {
+    "Illuminate/Container": "^5.2"
+  }
+}
