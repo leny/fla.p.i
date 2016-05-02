@@ -3,8 +3,15 @@ namespace Controllers;
 
 use Models\Score;
 
+/**
+ * Class ScoreController
+ * @package Controllers
+ */
 class ScoreController extends Controller
 {
+    /**
+     * @var Score|null
+     */
     private $score_model = null;
 
     /**
@@ -15,19 +22,24 @@ class ScoreController extends Controller
         $this->score_model = $score;
     }
 
+    /**
+     * @return array
+     */
     public function index()
     {
         return $this->score_model->topScores();
     }
 
+    /**
+     * @return array
+     */
     public function store()
     {
-        if (!isset($_POST['score']) || !isset($_POST['username'])) {
+        if (!isset($_POST['score'])) {
             return ['error' => 'la requête est incomplète'];
         }
         $fields = [];
         $fields['score'] = intval($_POST['score']);
-        $fields['username'] = $_POST['username'];
         if ($this->score_model->save($fields)) {
             return ['success' => 'le score a bien été enregistré'];
         } else {

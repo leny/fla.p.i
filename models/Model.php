@@ -5,6 +5,10 @@ namespace Models;
  * Class Model
  * @package Model
  */
+/**
+ * Class Model
+ * @package Models
+ */
 class Model
 {
     /**
@@ -76,6 +80,10 @@ class Model
         return $pdoSt->fetch();
     }
 
+    /**
+     * @param $fields
+     * @return bool
+     */
     public function save($fields)
     {
         $sFieldsNames = implode('`, `', array_keys($fields));
