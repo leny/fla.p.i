@@ -5,6 +5,16 @@ $default_route = $routes['default'];
 $route_parts = explode('/', $default_route);
 
 $method = $_SERVER['REQUEST_METHOD'];
+
+// Allow CORS
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET,POST');
+header('Access-Control-Allow-Headers: X-Requested-With');
+if ($method === 'OPTIONS') {
+    http_response_code(200);
+    die();
+}
+
 $a = isset($_REQUEST['a']) ? $_REQUEST['a'] : $route_parts[1];
 $r = isset($_REQUEST['r']) ? $_REQUEST['r'] : $route_parts[2];
 
